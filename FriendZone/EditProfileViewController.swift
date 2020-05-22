@@ -16,6 +16,8 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var aboutTextField: UITextView!
     
+    var mode = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageFile = PFUser.current()?["photo"] as! PFFileObject
@@ -24,6 +26,9 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
                 self.profileImageView.image = UIImage(data: imageData)
             }
         }
+        self.nameTextField.text = ((PFUser.current()?["name"] as? String) ?? "")
+        self.ageTextField.text = ((PFUser.current()?["age"] as? String) ?? "")
+        self.aboutTextField.text = ((PFUser.current()?["about"] as? String) ?? "")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
@@ -89,7 +94,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             
             var age = ""
             if ((ageTextField.text == nil) || (ageTextField.text == "")) {
-                age = "Not provided"
+                age = ""
             }
             else {
                 age = ageTextField.text!
@@ -97,7 +102,7 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             
             var about = ""
             if ((aboutTextField.text == nil) || (ageTextField.text == "")) {
-                about = "Not provided"
+                about = ""
             }
             else {
                 about = aboutTextField.text
@@ -134,7 +139,9 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
                     print("Updated")
                     let alert = UIAlertController(title: "Success", message: "Profile updated successfully", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                        self.performSegue(withIdentifier: "profileToInterests", sender: nil)
+                        if (self.mode == 1) {
+                          self.performSegue(withIdentifier: "profileToInterests", sender: nil)
+                        }
                     }))
                     self.present(alert, animated: true)
                 }

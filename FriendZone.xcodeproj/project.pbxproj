@@ -19,6 +19,9 @@
 		28843BB8AAD43433191541DF /* Pods_FriendZoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C5CBFC6510389F38D173E7 /* Pods_FriendZoneTests.framework */; };
 		28C182B8246F7312005F5245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C182B7246F7312005F5245 /* LoginViewController.swift */; };
 		28EC605D2472376900F738F8 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EC605C2472376900F738F8 /* InterestViewController.swift */; };
+		28FBD71224775F940067E3A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBD71124775F940067E3A3 /* HomeViewController.swift */; };
+		28FBD714247765CC0067E3A3 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBD713247765CC0067E3A3 /* MatchesViewController.swift */; };
+		28FBD716247767070067E3A3 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBD715247767070067E3A3 /* MatchCell.swift */; };
 		50380CAFA0C52A4C295E35F5 /* Pods_FriendZone_FriendZoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D902280DE8BFBFB3F3889B3 /* Pods_FriendZone_FriendZoneUITests.framework */; };
 		887253054D5832A353C57099 /* Pods_FriendZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C59C54EE1098258E47416DE /* Pods_FriendZone.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		282CEFC2246F5BC2009E37BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28C182B7246F7312005F5245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		28EC605C2472376900F738F8 /* InterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
+		28FBD71124775F940067E3A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		28FBD713247765CC0067E3A3 /* MatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		28FBD715247767070067E3A3 /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		3A32FEF9FAAEFDCCF50C25D2 /* Pods-FriendZoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendZoneTests.release.xcconfig"; path = "Target Support Files/Pods-FriendZoneTests/Pods-FriendZoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C59C54EE1098258E47416DE /* Pods_FriendZone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendZone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D902280DE8BFBFB3F3889B3 /* Pods_FriendZone_FriendZoneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendZone_FriendZoneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +138,9 @@
 				282B7EFC24709EB50044B4C6 /* SignUpViewController.swift */,
 				282B7EFE2470C2C20044B4C6 /* EditProfileViewController.swift */,
 				28EC605C2472376900F738F8 /* InterestViewController.swift */,
+				28FBD71124775F940067E3A3 /* HomeViewController.swift */,
+				28FBD713247765CC0067E3A3 /* MatchesViewController.swift */,
+				28FBD715247767070067E3A3 /* MatchCell.swift */,
 			);
 			path = FriendZone;
 			sourceTree = "<group>";
@@ -416,11 +425,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FBD716247767070067E3A3 /* MatchCell.swift in Sources */,
 				28EC605D2472376900F738F8 /* InterestViewController.swift in Sources */,
 				28C182B8246F7312005F5245 /* LoginViewController.swift in Sources */,
+				28FBD714247765CC0067E3A3 /* MatchesViewController.swift in Sources */,
 				282CEF9F246F5BC0009E37BE /* AppDelegate.swift in Sources */,
 				282B7EFD24709EB50044B4C6 /* SignUpViewController.swift in Sources */,
 				282B7EFF2470C2C20044B4C6 /* EditProfileViewController.swift in Sources */,
+				28FBD71224775F940067E3A3 /* HomeViewController.swift in Sources */,
 				282CEFA1246F5BC0009E37BE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

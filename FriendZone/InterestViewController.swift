@@ -22,6 +22,9 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        interestTableView.dataSource = self
+        interestTableView.delegate = self
+        
         interestArray = PFUser.current()?["interests"] as! [String]
         interestTableView.reloadData()
         
@@ -43,6 +46,12 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = UITableViewCell()
         cell.textLabel?.text = interestArray[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (self.mode == 0) {
+            
+        }
     }
     
     @IBAction func addInterest(_ sender: Any) {
@@ -79,6 +88,7 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
                 } else {
                                 
                     print("Updated")
+                    self.newInterestTextField.text = ""
                     self.interestTableView.reloadData()
                     let alert = UIAlertController(title: "Success", message: "Interests updated successfully", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

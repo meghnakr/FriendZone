@@ -90,6 +90,13 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "signUpToProfile") {
+            let editProfileViewController = segue.destination as! EditProfileViewController
+            editProfileViewController.mode = 1
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
