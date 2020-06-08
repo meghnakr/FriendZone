@@ -30,14 +30,27 @@ class SignUpViewController: UIViewController {
             user.password = passwordTextField.text!
             user.signUpInBackground { (suceeded, error) in
                 if error != nil {
-                    let alert = UIAlertController(title: "Error", message: "Username Already Exists!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true)
+                    if ((self.usernameTextField.text == nil) || (self.usernameTextField.text == "")) {
+                        let alert = UIAlertController(title: "Error", message: "Please Enter a Username!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                    else if ((self.passwordTextField.text == nil) || (self.passwordTextField.text == "")) {
+                        let alert = UIAlertController(title: "Error", message: "Please Enter a Password", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                    else {
+                        let alert = UIAlertController(title: "Error", message: "Username Already Exists!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
                 }
                 else {
                     let defaultImage : UIImage = UIImage(named: "blank-profile-picture-973460_640")!
                     let imageData = defaultImage.jpegData(compressionQuality: 0.1)
                     PFUser.current()?["photo"] = PFFileObject(name: "profile.png", data: imageData!)
+                    
                     PFUser.current()?.saveInBackground(block: { (success, error) in
                                 
                         if error != nil {

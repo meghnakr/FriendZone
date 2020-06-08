@@ -114,7 +114,9 @@ class EditProfileViewController: UIViewController, UINavigationControllerDelegat
             PFUser.current()?["name"] = name
             PFUser.current()?["age"] = age
             PFUser.current()?["about"] = about
-            PFUser.current()?["interests"] = []
+            if (mode == 1) {
+                PFUser.current()?["interests"] = []
+            }
             
             PFUser.current()?.saveInBackground(block: { (success, error) in
                                 
