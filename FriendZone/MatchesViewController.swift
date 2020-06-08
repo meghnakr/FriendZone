@@ -16,13 +16,15 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var noMatchesLabel: UILabel!
     @IBOutlet weak var matchesTableView: UITableView!
     
-    var searchItem = String()
+    var givenSearchItem = String()
     var matchesArray = [PFUser]()
     var usersArray = [PFUser]()
     var userScores = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchItemTextField.text = givenSearchItem
         
         matchesTableView.dataSource = self
         matchesTableView.delegate = self
@@ -161,7 +163,7 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
         
         query?.whereKey("username", notEqualTo: PFUser.current()?["username"]!)
         
-        searchItem = searchItemTextField.text!
+        let searchItem = searchItemTextField.text!
         
         if ((searchItem != "") && (searchItem != nil)) {
             query?.whereKey("interests", contains: searchItem)
@@ -181,9 +183,9 @@ class MatchesViewController: UIViewController, UITableViewDataSource, UITableVie
                             let eachInterestsArray = user["interests"] as! [String]
                             var score = 0
                             print("calculating score")
-                            if ((self.searchItem != nil) &&
-                                (self.searchItem != "") &&
-                                (!currentInterestsArray.contains(self.searchItem))) {
+                            if ((searchItem != nil) &&
+                                (searchItem != "") &&
+                                (!currentInterestsArray.contains(searchItem))) {
                                 score = score + 1
                             }
                             for interest in currentInterestsArray {

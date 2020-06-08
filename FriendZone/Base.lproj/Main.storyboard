@@ -473,7 +473,7 @@
             <objects>
                 <viewController id="xwZ-mO-yMO" customClass="InterestViewController" customModule="FriendZone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98P-Ez-mAA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7o-SY-0fv">
@@ -502,13 +502,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="rQK-Uf-G4c">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="56"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" rowHeight="65" id="rQK-Uf-G4c">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rQK-Uf-G4c" id="09I-ed-CoM">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="vDu-55-Lvr" appends="YES" id="WHV-9D-QWK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -540,21 +544,28 @@
                         <outlet property="newInterestTextField" destination="jng-LA-VpD" id="DEu-pd-Vmn"/>
                         <outlet property="noInterestsLabel" destination="1d9-gr-ggo" id="9tN-zg-oyh"/>
                         <segue destination="jf1-f8-X7m" kind="presentation" identifier="interestsToHome" modalPresentationStyle="fullScreen" id="OBw-jC-LHb"/>
+                        <segue destination="jTM-3N-CjU" kind="presentation" identifier="interestsToMatches" id="O1u-D0-EkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUx-hR-ZtE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ccN-Qc-ayw">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="ccN-Qc-ayw">
                     <connections>
                         <action selector="onTap:" destination="xwZ-mO-yMO" id="PmH-8C-OdI"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="vDu-55-Lvr">
+                    <connections>
+                        <action selector="onLongPress:" destination="xwZ-mO-yMO" id="Gl6-Nl-Zym"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1811.594202898551" y="900"/>
+            <point key="canvasLocation" x="1842.0289855072465" y="900"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mRp-qo-EFf"/>
+        <segue reference="ySq-qK-LvH"/>
         <segue reference="MLZ-bR-Mqd"/>
+        <segue reference="O1u-D0-EkK"/>
         <segue reference="OBw-jC-LHb"/>
     </inferredMetricsTieBreakers>
     <resources>

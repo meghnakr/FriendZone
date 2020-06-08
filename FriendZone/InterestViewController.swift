@@ -19,6 +19,8 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var mode = Int()
     
+    var selectedInterest = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,9 +51,13 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected")
         if (self.mode == 0) {
-            
+            let cell = interestTableView.cellForRow(at: indexPath)
+            selectedInterest = cell?.textLabel?.text as! String
+            performSegue(withIdentifier: "interestsToMatches", sender: interestTableView.cellForRow(at: indexPath))
         }
+        interestTableView.deselectRow(at: indexPath, animated: true)
     }
     
     @IBAction func addInterest(_ sender: Any) {
@@ -106,6 +112,18 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
         view.endEditing(true)
     }
     
+    @IBAction func onLongPress(_ sender: Any) {
+        print("long pressed")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "interestsToMatches") {
+            let cell = sender as! UITableViewCell
+            let matchesViewController = segue.destination as! MatchesViewController
+            matchesViewController.givenSearchItem = selectedInterest
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -115,5 +133,12 @@ class InterestViewController: UIViewController, UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // MARK: - UIContextMenuInteractionDelegate
 }
+
+/*extension InterestViewController: UIContextMenuInteractionDelegate {
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration
+    }
+}*/
